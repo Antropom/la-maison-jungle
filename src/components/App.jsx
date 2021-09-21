@@ -1,14 +1,14 @@
+import React from 'react'
 import Banner from './Banner'
 import Cart from './Cart'
-
 
 function App() {
   return (
     <div>
-  <Banner />
-  <Cart />
+      <Banner />
+      <Cart />
     </div>
-    )
+  )
 }
 
-export default App;
+export default App
