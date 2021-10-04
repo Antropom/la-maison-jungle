@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import React from 'react'
 import PropTypes from 'prop-types'
 import Sun from '../assets/sun.svg'
@@ -14,8 +15,15 @@ function CareScale(props) {
 
   const range = [1, 2, 3]
 
+  function handleClick() {
+    const care = careType === 'light' ? 'Luminosité' : 'Arrosage'
+    const scale = scaleValue === 1 ? 'peu' : scaleValue === 2 ? 'modérement' : 'beaucoup'
+    const endSentence = careType === 'light' ? 'de lumière' : 'd\'arrosage'
+    alert(`${care}: Cette plante requiert ${scale} ${endSentence}`)
+  }
+
   return (
-    <div>
+    <div onClick={() => handleClick()} role="button" tabIndex={0}>
       {range.map((rangeElem) => (
         (scaleValue >= rangeElem ? <span key={rangeElem.toString()}>{scaleType}</span> : null)))}
     </div>

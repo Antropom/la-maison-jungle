@@ -8,8 +8,12 @@ function PlantItem(props) {
     name, cover, id, light, water,
   } = props
 
+  function handleClick(plantName) {
+    console.log(`Vous voulez acheter 1 ${plantName} ? Très bon choix 🌱✨`)
+  }
+
   return (
-    <li key={id} className="lmj-plant-item">
+    <li key={id} className="lmj-plant-item" onClick={() => handleClick(name)}>
       <img className="lmj-plant-item-cover" src={cover} alt={`${name} cover`} />
       {name}
       <div>
@@ -23,7 +27,7 @@ function PlantItem(props) {
 PlantItem.propTypes = {
   name: PropTypes.string.isRequired,
   cover: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   light: PropTypes.string.isRequired,
   water: PropTypes.string.isRequired,
 }
